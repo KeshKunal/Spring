@@ -23,6 +23,7 @@ import Blogs from './pages/Blog/Blogs.jsx'
 import Ques from './components/Ques/meQues.jsx'
 import QuesFamily from './components/Ques/familyQues.jsx'
 import QuesFriend from './components/Ques/friendQues.jsx'
+import BookSession from './pages/BookSession/BookSession.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,7 +31,8 @@ const router = createBrowserRouter(
 
     <Route path='/' element={<App />}>
       <Route path="" element={<HomePage />} />
-      <Route path="book-session" element={<TherapistPage />} />
+      <Route path="book-session" element={<BookSession />} />
+      <Route path="therapists" element={<TherapistPage />} />
       <Route path="dream-analyzer" element={<Dream />} />
       <Route path="digital-detox" element={<Detox />} />
       <Route path="talk-with-ai" element={<Talk />} />

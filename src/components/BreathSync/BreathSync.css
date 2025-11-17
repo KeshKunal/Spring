@@ -1,0 +1,1013 @@
+.breath-sync-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.breath-sync-overlay.dark-theme {
+  background: linear-gradient(135deg, rgba(13, 30, 68, 0.97), rgba(26, 42, 82, 0.97));
+}
+
+.breath-sync-overlay.light-theme {
+  background: linear-gradient(135deg, rgba(251, 244, 238, 0.97), rgba(245, 235, 224, 0.97));
+}
+
+.breath-sync-container {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.dark-theme .close-btn {
+  color: #fff;
+}
+
+.light-theme .close-btn {
+  color: #372E2C;
+  background: rgba(55, 46, 44, 0.2);
+}
+
+.light-theme .close-btn:hover {
+  background: rgba(55, 46, 44, 0.3);
+}
+
+.breath-sync-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.dark-theme .breath-sync-title {
+  color: #7A75BC;
+}
+
+.light-theme .breath-sync-title {
+  color: #372E2C;
+}
+
+.breath-sync-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  color: white;
+}
+
+.light-theme .breath-sync-subtitle {
+  color: #4A3A37;
+}
+
+.duration-selector {
+  margin-bottom: 2rem;
+}
+
+.duration-label {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.light-theme .duration-label {
+  color: #372E2C;
+}
+
+.duration-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.duration-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: white;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.duration-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.duration-btn.active {
+  background: rgba(79, 209, 197, 0.3);
+  border-color: #4FD1C5;
+  color: #4FD1C5;
+}
+
+.light-theme .duration-btn {
+  border-color: rgba(55, 46, 44, 0.3);
+  color: #372E2C;
+}
+
+.light-theme .duration-btn:hover {
+  background: rgba(232, 217, 202, 0.5);
+}
+
+.light-theme .duration-btn.active {
+  background: rgba(124, 100, 72, 0.3);
+  border-color: #7C6448;
+  color: #7C6448;
+}
+
+.custom-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.custom-input-wrapper label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.light-theme .custom-input-wrapper label {
+  color: #372E2C;
+}
+
+.custom-input {
+  width: 80px;
+  padding: 0.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.light-theme .custom-input {
+  border-color: rgba(55, 46, 44, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+  color: #372E2C;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #4FD1C5;
+}
+
+.start-btn {
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, #4FD1C5, #36B5A7);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(79, 209, 197, 0.3);
+}
+
+.start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(79, 209, 197, 0.5);
+}
+
+.light-theme .start-btn {
+  background: linear-gradient(135deg, #7C6448, #5D4037);
+  box-shadow: 0 4px 15px rgba(124, 100, 72, 0.3);
+}
+
+.light-theme .start-btn:hover {
+  box-shadow: 0 6px 20px rgba(124, 100, 72, 0.5);
+}
+
+.breathing-canvas {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.countdown-number {
+  font-size: 8rem;
+  font-weight: 900;
+  color: #4FD1C5;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(79, 209, 197, 0.5);
+}
+
+.light-theme .countdown-number {
+  color: #7C6448;
+  text-shadow: 0 0 30px rgba(124, 100, 72, 0.3);
+}
+
+.countdown-text {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: white;
+  opacity: 0.8;
+}
+
+.light-theme .countdown-text {
+  color: #372E2C;
+}
+
+.timer-display {
+  position: absolute;
+  top: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  opacity: 0.6;
+}
+
+.light-theme .timer-display {
+  color: #372E2C;
+}
+
+.breathing-circle-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+}
+
+.progress-ring-bg {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.light-theme .progress-ring-bg {
+  stroke: rgba(55, 46, 44, 0.15);
+}
+
+.progress-ring-circle {
+  stroke: #4FD1C5;
+  stroke-dasharray: 1130;
+  stroke-dashoffset: 1130;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  filter: drop-shadow(0 0 8px rgba(79, 209, 197, 0.6));
+}
+
+.light-theme .progress-ring-circle {
+  stroke: #7C6448;
+  filter: drop-shadow(0 0 8px rgba(124, 100, 72, 0.5));
+}
+
+.progress-ring-circle.inhale {
+  animation: progressInhale 4s ease-in-out forwards;
+}
+
+.progress-ring-circle.exhale {
+  animation: progressExhale 4s ease-in-out forwards;
+}
+
+.breathing-circle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(79, 209, 197, 0.4), rgba(54, 181, 167, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 0 40px rgba(79, 209, 197, 0.4),
+    inset 0 0 30px rgba(79, 209, 197, 0.2);
+  will-change: transform;
+}
+
+.light-theme .breathing-circle {
+  background: radial-gradient(circle at 30% 30%, rgba(124, 100, 72, 0.4), rgba(93, 64, 55, 0.2));
+  box-shadow: 
+    0 0 40px rgba(124, 100, 72, 0.3),
+    inset 0 0 30px rgba(124, 100, 72, 0.2);
+}
+
+.breathing-circle.inhale {
+  animation: breatheIn 4s ease-in-out forwards;
+}
+
+.breathing-circle.exhale {
+  animation: breatheOut 4s ease-in-out forwards;
+}
+
+.breathing-circle-inner {
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.breathing-circle-core {
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.breath-instruction {
+  margin-top: 2rem;
+  text-align: center;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.breath-phase-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: rgba(79, 209, 197, 0.2);
+  border: 2px solid rgba(79, 209, 197, 0.4);
+  color: #4FD1C5;
+  transition: all 0.3s ease;
+}
+
+.light-theme .breath-phase-badge {
+  background: rgba(124, 100, 72, 0.2);
+  border-color: rgba(124, 100, 72, 0.4);
+  color: #7C6448;
+}
+
+.breath-phase-badge.inhale {
+  animation: bounceUp 0.6s ease-out;
+}
+
+.breath-phase-badge.exhale {
+  animation: bounceDown 0.6s ease-out;
+}
+
+.breath-phase-text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.light-theme .breath-phase-text {
+  color: #372E2C;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+.breath-hint {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.light-theme .breath-hint {
+  color: rgba(55, 46, 44, 0.8);
+}
+
+.breath-count-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.breath-count-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.light-theme .breath-count-dots .dot {
+  background: rgba(55, 46, 44, 0.3);
+}
+
+.breath-count-dots .dot.active {
+  background: #4FD1C5;
+  box-shadow: 0 0 10px rgba(79, 209, 197, 0.6);
+  animation: dotPulse 1s ease-in-out infinite;
+}
+
+.light-theme .breath-count-dots .dot.active {
+  background: #7C6448;
+  box-shadow: 0 0 10px rgba(124, 100, 72, 0.5);
+}
+
+.stop-btn {
+  margin-top: 2rem;
+  padding: 0.85rem 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.stop-btn:hover {
+  background: rgba(255, 77, 77, 0.2);
+  border-color: rgba(255, 77, 77, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 77, 77, 0.3);
+}
+
+.light-theme .stop-btn {
+  background: rgba(55, 46, 44, 0.1);
+  color: #372E2C;
+  border-color: rgba(55, 46, 44, 0.3);
+}
+
+.light-theme .stop-btn:hover {
+  background: rgba(180, 50, 50, 0.15);
+  border-color: rgba(180, 50, 50, 0.4);
+  box-shadow: 0 4px 15px rgba(180, 50, 50, 0.2);
+}
+
+@keyframes breatheIn {
+  0% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 40px rgba(79, 209, 197, 0.4),
+      inset 0 0 30px rgba(79, 209, 197, 0.2);
+  }
+  100% {
+    transform: scale(2.5);
+    box-shadow: 
+      0 0 100px rgba(79, 209, 197, 0.7),
+      inset 0 0 60px rgba(79, 209, 197, 0.4);
+  }
+}
+
+@keyframes breatheOut {
+  0% {
+    transform: scale(2.5);
+    box-shadow: 
+      0 0 100px rgba(79, 209, 197, 0.7),
+      inset 0 0 60px rgba(79, 209, 197, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 40px rgba(79, 209, 197, 0.4),
+      inset 0 0 30px rgba(79, 209, 197, 0.2);
+  }
+}
+
+@keyframes progressInhale {
+  0% {
+    stroke-dashoffset: 1130;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes progressExhale {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 1130;
+  }
+}
+
+@keyframes bounceUp {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounceDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .breath-sync-title {
+    font-size: 2rem;
+  }
+
+  .breath-sync-subtitle {
+    font-size: 1rem;
+  }
+
+  .duration-buttons {
+    gap: 0.5rem;
+  }
+
+  .duration-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .breathing-circle-container {
+    width: 320px;
+    height: 320px;
+  }
+
+  .progress-ring {
+    width: 320px;
+    height: 320px;
+  }
+
+  .breathing-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .countdown-number {
+    font-size: 6rem;
+  }
+
+  .breath-phase-text {
+    font-size: 2rem;
+  }
+
+  .breath-hint {
+    font-size: 1rem;
+  }
+
+  .breath-phase-badge {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .breath-sync-container {
+    padding: 1.5rem;
+  }
+
+  .breathing-circle-container {
+    width: 280px;
+    height: 280px;
+  }
+
+  .progress-ring {
+    width: 280px;
+    height: 280px;
+  }
+
+  .breathing-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .start-btn {
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+  }
+
+  .breath-phase-text {
+    font-size: 1.75rem;
+  }
+
+  .breath-phase-badge {
+    width: 45px;
+    height: 45px;
+    font-size: 1.25rem;
+  }
+}
+
+/* ==================== IMMERSIVE FULLSCREEN MODE ==================== */
+
+.fullscreen-mode {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 9999 !important;
+  border-radius: 0 !important;
+  background: #000000 !important;
+}
+
+.immersive-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Cancel Button - Always Visible */
+.cancel-btn-fullscreen {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.75rem;
+  background: rgba(239, 68, 68, 0.95);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  z-index: 10000;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.cancel-btn-fullscreen:hover {
+  background: rgba(239, 68, 68, 1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px rgba(239, 68, 68, 0.6);
+}
+
+.cancel-btn-fullscreen svg {
+  stroke-width: 2.5;
+}
+
+.timer-display-corner {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  font-weight: 300;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+.eye-instruction {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.6;
+  z-index: 10;
+}
+
+.eye-instruction svg {
+  opacity: 0.8;
+}
+
+.breathing-canvas {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.breathing-circle-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.moving-breath-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: left 8s cubic-bezier(0.4, 0, 0.2, 1), top 8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: left, top;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Simple Breathing Circle - Clean and Smooth */
+.simple-breathing-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: transform 4s ease-in-out, box-shadow 4s ease-in-out;
+}
+
+.simple-breathing-circle.light {
+  background: radial-gradient(circle, #A78BFA, #8B5CF6);
+}
+
+.simple-breathing-circle.dark {
+  background: radial-gradient(circle, #60A5FA, #3B82F6);
+}
+
+/* Inhale - Expand */
+.simple-breathing-circle.inhale {
+  transform: scale(2.5);
+  box-shadow: 0 0 80px rgba(139, 92, 246, 0.8);
+}
+
+/* Hold - Stay Expanded */
+.simple-breathing-circle.hold {
+  transform: scale(2.5);
+  box-shadow: 0 0 80px rgba(139, 92, 246, 0.8);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Exhale - Shrink */
+.simple-breathing-circle.exhale {
+  transform: scale(1);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+}
+
+/* Hold - Stay Small */
+.simple-breathing-circle.hold-exhale {
+  transform: scale(1);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.stop-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.stop-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: rgba(239, 68, 68, 0.5);
+  transform: scale(1.05);
+}
+
+.dark-theme .stop-btn {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.dark-theme .stop-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+
+.breath-instruction-bottom {
+  position: fixed;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+.breath-instruction-bottom .breath-phase-badge {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 2rem;
+}
+
+.breath-instruction-bottom .breath-phase-text {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+.end-session-btn {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.end-session-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.light-theme .end-session-btn {
+  color: #372E2C;
+  border-color: rgba(55, 46, 44, 0.3);
+  background: rgba(55, 46, 44, 0.1);
+}
+
+.light-theme .end-session-btn:hover {
+  background: rgba(55, 46, 44, 0.2);
+  border-color: rgba(55, 46, 44, 0.5);
+}
+
+/* Setup Screen Styling */
+.setup-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.countdown-hint {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+/* Dark Theme Adjustments for Immersive Mode */
+.dark-theme.fullscreen-mode {
+  background: #000000 !important;
+}
+
+.light-theme.fullscreen-mode {
+  background: #000000 !important;
+}
+
+/* ==================== RESPONSIVE IMMERSIVE MODE ==================== */
+
+@media (max-width: 768px) {
+  .simple-breathing-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .simple-breathing-circle.inhale,
+  .simple-breathing-circle.hold {
+    transform: scale(2);
+    box-shadow: 0 0 60px rgba(139, 92, 246, 0.8);
+  }
+
+  .simple-breathing-circle.exhale,
+  .simple-breathing-circle.hold-exhale {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+  }
+
+  .cancel-btn-fullscreen {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .cancel-btn-fullscreen span {
+    display: none;
+  }
+
+  .timer-display-corner {
+    font-size: 1.5rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .eye-instruction {
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .breath-instruction-bottom {
+    bottom: 4rem;
+  }
+
+  .breath-instruction-bottom .breath-phase-text {
+    font-size: 1.25rem;
+  }
+
+  .end-session-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}

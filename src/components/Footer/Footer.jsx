@@ -12,7 +12,7 @@ const Footer = () => {
 
           <div className="flex space-x-2 sm:space-x-6 mt-8 ">
             <SocialIcon url="https://linkedin.com" style={{ height: 30, width: 30 } } className="!h-8 !w-8 sm:!h-10 sm:!w-10" />
-            <SocialIcon url="https://instagram.com/healwithSpring" style={{ height: 30, width: 30 }} className="!h-8 !w-8 sm:!h-10 sm:!w-10" />
+            <SocialIcon url="https://instagram.com/" style={{ height: 30, width: 30 }} className="!h-8 !w-8 sm:!h-10 sm:!w-10" />
             <SocialIcon url="https://email.com/" style={{ height: 30, width: 30 }} className="!h-8 !w-8 sm:!h-10 sm:!w-10" />
           </div>
         </div>
