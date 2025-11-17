@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-center pb-8 border-b border-gray-700">
           {/* <div className="text-5xl font-bold font-Roca mb-4 sm:mb-0">Spring</div> */}
-          <img src="/logo.png" alt="" className='scale-50 sm:-ml-32 -my-10'/>
+          <img src="/logo_spring.png" alt="" className='scale-50 sm:-ml-32 -my-10'/>
 
           <div className="flex space-x-2 sm:space-x-6 mt-8 ">
             <SocialIcon url="https://linkedin.com" style={{ height: 30, width: 30 } } className="!h-8 !w-8 sm:!h-10 sm:!w-10" />

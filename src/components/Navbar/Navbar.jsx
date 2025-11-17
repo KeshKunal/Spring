@@ -66,45 +66,28 @@ const Navbar = () => {
           )}
         </div>
         <div className="lg:block hidden">
-          <a
-            href="/book-session"
-            className="text-white text-2xl hover:underline p-5"
-          >
-            Find support
-          </a>
+          <div className="flex items-center space-x-6">
 
-          <div className="dropdown dropdown-hover z-20">
-            <div
-              tabIndex={0}
-              role="button"
-              className="text-white text-2xl hover:underline m-1 p-3"
+            <nav className="flex items-center gap-6">
+              <Link to="/dream-analyzer" className="text-white text-lg hover:text-[#4FD1C5] transition">Dream Analyzer</Link>
+              <Link to="/digital-detox" className="text-white text-lg hover:text-[#4FD1C5] transition">Digital Detox</Link>
+              <Link to="/audio-video-therapy" className="text-white text-lg hover:text-[#4FD1C5] transition">Audio/Video Therapy</Link>
+              <Link to="/talk-with-ai" className="text-white text-lg hover:text-[#4FD1C5] transition">Youth Corner</Link>
+            </nav>
+            <a
+              href="/blogs"
+              className="text-white text-lg hover:text-[#4FD1C5] transition"
             >
-              More
-            </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box w-44 shadow"
+              Blogs & Stories
+            </a>
+            <a
+              href="/book-session"
+              className="bg-[#4FD1C5] text-[#06201C] font-semibold rounded-full px-4 py-2 hover:opacity-95 transition"
             >
-              <li className="-ml-3">
-                <Link to="/dream-analyzer">Dream Analyzer</Link>
-              </li>
-              <li className="-ml-3">
-                <Link to="/digital-detox">Digital Detox</Link>
-              </li>
-              <li className="-ml-3">
-                <Link to="/audio-video-therapy">Audio/Video Therapy</Link>
-              </li>
-              <li className="-ml-3">
-                <Link to="/talk-with-ai">Youth Corner</Link>
-              </li>
-            </ul>
+              Find support
+            </a>
+
           </div>
-          <a
-            href="/blogs"
-            className="text-white text-2xl hover:underline p-5"
-          >
-            Blogs & Stories
-          </a>
         </div>
       </div>
     </nav>

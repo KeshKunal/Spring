@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AudioPlayer from './AudioPlayer';
 
-function Audio() { 
+function Music() { 
   
   const sources = [
     "/Meditation/audio1.mp3",
@@ -91,4 +91,4 @@ function Audio() {
   );
 }
 
-export default Audio;
+export default Music;
