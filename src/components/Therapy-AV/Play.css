@@ -1,0 +1,19 @@
+.bg-blueCustom {
+    background: rgb(140, 178, 255);
+    background: -moz-radial-gradient(circle, rgba(140, 178, 255, 1) 23%, rgba(192, 213, 255, 1) 70%, rgba(255, 255, 255, 1) 98%);
+    background: -webkit-radial-gradient(circle, rgba(140, 178, 255, 1) 23%, rgba(192, 213, 255, 1) 70%, rgba(255, 255, 255, 1) 98%);
+    background: radial-gradient(circle, rgba(140, 178, 255, 1) 23%, rgba(192, 213, 255, 1) 70%, rgba(255, 255, 255, 1) 98%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8cb2ff", endColorstr="#ffffff", GradientType=1);
+}
+
+.bg-bottom-custom {
+    background: rgb(149, 179, 230);
+    background: -moz-radial-gradient(circle, rgba(149, 179, 230, 1) 23%, rgba(201, 220, 255, 1) 83%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(149, 179, 230, 1) 23%, rgba(201, 220, 255, 1) 83%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
+    background: radial-gradient(circle, rgba(149, 179, 230, 1) 23%, rgba(201, 220, 255, 1) 83%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#95b3e6", endColorstr="#ffffff", GradientType=1);
+}
+
+.right-alligned{
+    float:right;
+}
