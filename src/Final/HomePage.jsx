@@ -1,6 +1,5 @@
 import React from 'react'
 import FrontPage from '../pages/FrontPage/FrontPage'
-import About from '../pages/About/About'
 import HelpPage from '../pages/HelpPage/HelpPage'
 import SessionPage from '../pages/SessionPage/SessionPage'
 import DetoxPage from '../pages/DetoxPage/DetoxPage'
@@ -15,7 +14,6 @@ function HomePage() {
   return (
     <div>
     <FrontPage/>
-    <About/>
     <HelpPage/>
     <SessionPage/>
     <DetoxPage/>
