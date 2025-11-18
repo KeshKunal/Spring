@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Markdown from 'react-markdown'
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import "../../pages/HelpPage/Help.css"
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY_QUIZ);
+const genAI = new GoogleGenerativeAI("AIzaSyCJnE0tVtHZdj60ba8sm-uFGx3IDujwVSg");
 import { Link } from 'react-router-dom';
 const questions = [
     {

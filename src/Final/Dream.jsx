@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY_DREAM);
+const genAI = new GoogleGenerativeAI("AIzaSyAgU67wkTvzCb7MNjwYM7QYwvRsJCfHPqY");
 
 function App() {
   const [llmResponse, setLlmResponse] = useState("");

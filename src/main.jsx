@@ -26,14 +26,6 @@ import QuesFamily from './components/Ques/familyQues.jsx'
 import QuesFriend from './components/Ques/friendQues.jsx'
 import BookSession from './pages/BookSession/BookSession.jsx'
 
-// Validate environment variables on startup
-if (!import.meta.env.VITE_GEMINI_API_KEY_DREAM) {
-  console.error('Missing VITE_GEMINI_API_KEY_DREAM environment variable');
-}
-if (!import.meta.env.VITE_GEMINI_API_KEY_QUIZ) {
-  console.error('Missing VITE_GEMINI_API_KEY_QUIZ environment variable');
-}
-
 const router = createBrowserRouter(
   createRoutesFromElements(
 
