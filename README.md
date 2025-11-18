@@ -6,7 +6,7 @@ Spring is a mental wellness platform offering AI support, self-assessments, ther
 
 ## 🎥 Demo Video (click to play)
 
-[![Watch the demo](public/Spring-homepage.png)](https://drive.google.com/file/d/1DPbdtP2sBBB33Owi6Qbj4Kf-BBpwLZh1/view?usp=sharing)
+[![Watch the demo](public/Spring-homepage.png)]()
 
 ## 🌟 Features
 
