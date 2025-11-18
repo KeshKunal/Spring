@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { store } from './store/store.js';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
 
 import TherapistPage from './Final/TherapistPage.jsx'
 import Dream from './Final/Dream.jsx'
@@ -24,6 +25,14 @@ import Ques from './components/Ques/meQues.jsx'
 import QuesFamily from './components/Ques/familyQues.jsx'
 import QuesFriend from './components/Ques/friendQues.jsx'
 import BookSession from './pages/BookSession/BookSession.jsx'
+
+// Validate environment variables on startup
+if (!import.meta.env.VITE_GEMINI_API_KEY_DREAM) {
+  console.error('Missing VITE_GEMINI_API_KEY_DREAM environment variable');
+}
+if (!import.meta.env.VITE_GEMINI_API_KEY_QUIZ) {
+  console.error('Missing VITE_GEMINI_API_KEY_QUIZ environment variable');
+}
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -50,10 +59,10 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-
+    <ErrorBoundary>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </ErrorBoundary>
   </React.StrictMode>,
 )

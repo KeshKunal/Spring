@@ -34,7 +34,7 @@ function BookSession() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically send the data to a backend
-    console.log('Form submitted:', formData);
+    // TODO: Implement backend API call
     setSubmitted(true);
     
     // Reset form after 3 seconds

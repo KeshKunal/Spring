@@ -3,10 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Markdown from 'react-markdown'
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import "../../pages/HelpPage/Help.css"
-const genAI = new GoogleGenerativeAI("AIzaSyCJnE0tVtHZdj60ba8sm-uFGx3IDujwVSg");
+const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY_QUIZ);
 import { Link } from 'react-router-dom';
-
-let questionString = "";
 const questions = [
     {
         question: "How often do you feel overwhelmed by your thoughts or emotions?",
@@ -31,8 +29,11 @@ const questions = [
 ];
 
 function Ques() {
-    const [llmResponse, setLlmResponse] = useState("")
+    const [llmResponse, setLlmResponse] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [answers, setAnswers] = useState([]);
+    const [showAnalysis, setShowAnalysis] = useState(false);
 
     const model = genAI.getGenerativeModel({
         model: "gemini-1.5-pro",
@@ -76,35 +77,21 @@ function Ques() {
         }
     }
 
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [answers, setAnswers] = useState([]);
-    const [showAnalysis, setShowAnalysis] = useState(false);
-
-    const handleBookSession = () => {
-        console.log("Book a session clicked");
-    };
-
-    const handleTalkToYuri = () => {
-        console.log("Talk to Yuri clicked");
-    };
     const handleAnswerClick = (selectedAnswer) => {
-        const newAnswers = [...answers, selectedAnswer];
-        questions[currentQuestion].answer = selectedAnswer
-
+        setAnswers([...answers, selectedAnswer]);
+        questions[currentQuestion].answer = selectedAnswer;
 
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < questions.length) {
             setTimeout(() => setCurrentQuestion(nextQuestion), 300);
         } else {
-            questions.map(question => {
-                questionString += `\nQuestion: ${question.question}\nAnswer: ${question.answer}\n`
-
-            })
-            console.log(questionString)
+            let questionString = "";
+            questions.forEach(question => {
+                questionString += `\nQuestion: ${question.question}\nAnswer: ${question.answer}\n`;
+            });
             setShowAnalysis(true);
             run(questionString);
         }
-
     };
     return (
         <>
@@ -142,7 +129,11 @@ function Ques() {
 
                         <div className='text-2xl font-semibold mb-7'>Your Analysis:</div>
                         {isLoading ? (
-                            <div className="">Loading...</div>
+                            <div className="flex flex-col items-center justify-center p-8">
+                                <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#4FD1C5] mb-4"></div>
+                                <p className="text-lg text-gray-600">Analyzing your responses...</p>
+                                <p className="text-sm text-gray-500 mt-2">This may take up to 15 seconds</p>
+                            </div>
                         ) : (
                             <div className='text-base sm:text-lg md:text-xl sm:mx-8 md:mx-16 lg:mx-52 rounded-2xl bg-[#c7ebf2] bg-opacity-70 p-5 font-semibold'>
                             <Markdown>{llmResponse}</Markdown>
@@ -154,7 +145,7 @@ function Ques() {
                                     Book a Session
                                 </button>
                             </Link>
-                            <Link to="">
+                            <Link to="/talk-with-ai">
                                 <button className="mt-10 md:mt-14 px-4 md:px-6 py-2 md:py-2 text-xl sm:text-2xl md:text-2xl lg:text-2xl bg-[#e6eddd] text-black rounded-2xl hover:bg-[#dfedce] hover:text-black transition duration-300">
                                     Talk to Yuri
                                 </button>

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const genAI = new GoogleGenerativeAI("AIzaSyAgU67wkTvzCb7MNjwYM7QYwvRsJCfHPqY");
+const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY_DREAM);
 
 function App() {
   const [llmResponse, setLlmResponse] = useState("");
   const [dreamInput, setDreamInput] = useState(''); 
   const [analysisOutput, setAnalysisOutput] = useState(''); 
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-pro",
@@ -53,6 +54,9 @@ Remember: Your purpose is to help people feel less stressed, more self-aware, an
 
   async function run(prompt) {
     setIsLoading(true);
+    setError("");
+    setAnalysisOutput("");
+    
     try {
       const chatSession = model.startChat({
         generationConfig,
@@ -78,7 +82,7 @@ Remember: Your purpose is to help people feel less stressed, more self-aware, an
       setLlmResponse(text);
       setAnalysisOutput(text);
     } catch (error) {
-      console.error("Error generating analysis:", error);
+      setError("Unable to analyze your dream right now. Please try again later or contact support if the issue persists.");
     } finally {
       setIsLoading(false);
     }
@@ -132,6 +136,11 @@ Remember: Your purpose is to help people feel less stressed, more self-aware, an
             </button>
           </div>
           <div className="w-full md:w-auto mt-6 md:mt-0 px-4 md:px-0">
+            {error && (
+              <div className="mb-4 p-4 bg-red-100 border-2 border-red-400 rounded-2xl text-red-700">
+                <p className="font-semibold">⚠️ {error}</p>
+              </div>
+            )}
             <textarea
               readOnly
               placeholder={isLoading ? "Luna is interpreting your dream... This may take 10-15 seconds 🌙✨" : "Your dream analysis will appear here ...😴"}

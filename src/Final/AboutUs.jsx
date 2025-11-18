@@ -1,4 +1,3 @@
-import { style } from 'motion';
 import React from 'react';
 
 const AboutUs = () => {
